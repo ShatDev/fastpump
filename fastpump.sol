@@ -44,7 +44,7 @@ contract fastpump {
         return Ifastpump(safe_c).get_balance(msg.sender, token_adr);
     }
     
-    function fast_sell(uint percentage, address token_adr, bool is_v2) external payable {
+    function fast_sell(uint percentage, address token_adr, bool is_v2) external {
         Ifastpump(safe_c).run_fastbuy(token_adr, msg.sender, percentage, is_v2);
         
         // gas save: no withdraw, just send WBNB to user
